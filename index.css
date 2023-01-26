@@ -1,0 +1,209 @@
+@keyframes growProgressBar {
+  0%,
+  33% {
+    --pgPercentage: 0;
+  }
+  100% {
+    --pgPercentage: var(--value);
+  }
+}
+
+@property --pgPercentage {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+div[role="progressbar"] {
+  --size: 70px;
+  --fg: #369;
+  --bg: rgb(32, 30, 36);
+  --pgPercentage: var(--value);
+
+  animation: growProgressBar 3s 1 forwards;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+      closest-side,
+      rgb(11, 11, 11) 80%,
+      transparent 0 99.9%,
+      gray 0
+    ),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--fg);
+}
+
+div[role="progressbar"]::before {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) "%";
+}
+.my-progress {
+  margin-left: 10px;
+}
+
+[aria-hidden="true"] {
+  display: none;
+}
+
+[aria-hidden="false"] {
+  display: block;
+}
+
+#nav1 > ul > #progress-bars > div {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+#nav1 > ul > #progress-bars > div > h5 {
+  margin-top: 10px;
+}
+
+#txt::-webkit-scrollbar {
+  display: none;
+}
+
+.my-slider .swiper-slide {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.my-slider .swiper-slide .typing-animation{
+visibility: hidden;
+}
+.my-slider .swiper-slide-active .typing-animation {
+  visibility: visible;
+  font-family: monospace; /* Web-safe typewriter-like font */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.17em solid pink; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  animation: typing1 5s steps(30, start),
+    blinking-cursor1 .5s step-end infinite;
+  font-size: 1.5em;
+  margin-top: 250px;
+  height: fit-content;
+}
+
+/* The typing effect */
+@keyframes typing1 {
+  from {
+    width: 0;
+  }
+  
+  to {
+    width: 50vh;
+  }
+}
+/* The typewriter cursor effect */
+@keyframes blinking-cursor1 {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.mySwiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  background-color: #336699;
+  border-radius: 5%;
+}
+
+.swiper-slide .imagebox img {
+  display: block;
+  width: 90%;
+  cursor: zoom-in;
+  border-radius: 5%;
+}
+.rounded-circle {
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.Introduction {
+  display: flex;
+}
+.Introduction h2 {
+  display: inline;
+  font-size: 16px;
+  color: #fff;
+  margin-left: 15px;
+  margin-top: 10px;
+  overflow: auto;
+  overflow-wrap: break-word;
+}
+.Introduction h2 span {
+  color: #eee;
+  font-size: 12px;
+}
+.mySwiper {
+  background-color: #000;
+}
+.portfolio h3 {
+  width: 100%;
+  font-size: 1rem;
+  text-align: left;
+  color: #eee;
+  margin-left: 10px;
+  margin-top: 10px;
+  line-height: 25px;
+}
+.portfolio h3 a {
+  text-decoration: none;
+  color: #eee;
+}
+.imagebox {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+
+.mySwiper {
+  height: auto;
+}
+.mySwiper .swiper-slide {
+  filter: blur(4px);
+}
+.mySwiper .swiper-slide-active {
+  filter: blur(0px);
+  width: 308px;
+  height: auto;
+}
+.download-btn{
+  background-color: #336699;
+}
+
+.modal-body img{
+width: 90%;
+height: 90%;
+}
+.divider{
+  display: block;
+  height: 30px;
+}
+.divider-50{
+  display: block;
+  height: 50px;
+}
